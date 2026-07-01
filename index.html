@@ -20,7 +20,7 @@
       href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="./style.css?v=20260625-branding" />
+    <link rel="stylesheet" href="./style.css?v=20260701-layout-pass" />
   </head>
   <body>
     <a class="skip-link" href="#main">본문으로 이동</a>
@@ -46,35 +46,15 @@
           </h1>
         </div>
 
-        <figure class="island-stage" aria-label="떠 있는 잔디섬 애니메이션">
-          <div class="island-wrap" data-grass-animation>
-            <canvas
-              class="grass-canvas"
-              width="1536"
-              height="1024"
-              aria-hidden="true"
-            ></canvas>
+        <figure class="grass-stage" aria-label="잔디 이니셜 이미지">
+          <div class="grass-scene" data-grass-animation>
             <img
-              class="grass-frame"
-              src="./assets/grass/grass-01.png.png"
-              alt="이끼와 작은 식물이 자라난 떠 있는 잔디섬"
+              class="grass-frame is-visible"
+              src="./assets/grass/g7 1.png"
+              alt="잔디로 표현한 KYJ 이니셜"
             />
-            <div class="island-fallback" aria-hidden="true">
-              <span class="sprout sprout-a"></span>
-              <span class="sprout sprout-b"></span>
-              <span class="sprout sprout-c"></span>
-              <span class="sprout sprout-d"></span>
-              <span class="sprout sprout-e"></span>
-              <span class="sprout sprout-f"></span>
-            </div>
-            <span class="growth-dot dot-a" aria-hidden="true"></span>
-            <span class="growth-dot dot-b" aria-hidden="true"></span>
-            <span class="growth-dot dot-c" aria-hidden="true"></span>
-            <span class="growth-dot dot-d" aria-hidden="true"></span>
           </div>
-          <figcaption class="sr-only">
-            페이지 진입 후 잔디섬이 떠오르고 작은 새싹이 순차적으로 자랍니다.
-          </figcaption>
+          <figcaption class="sr-only">잔디 이니셜이 아주 약하게 바람에 흔들립니다.</figcaption>
         </figure>
       </section>
 
@@ -120,11 +100,11 @@
           <dl>
             <div>
               <dt>2021.03 - 2022.02</dt>
-              <dd>경인대학교 관광경영학 졸업</dd>
+              <dd>장안대학교 관광경영학 졸업</dd>
             </div>
             <div>
               <dt>2026.03 - 2026.06</dt>
-              <dd>신촌 그린아카데미 AI 활용 반응형 웹 UI/UX 제작 과정 수료</dd>
+              <dd>성남 그린컴퓨터 AI 활용 반응형 웹 UI/UX 제작 과정 수료</dd>
             </div>
           </dl>
         </article>
@@ -163,21 +143,21 @@
             <p><span>22.07</span> 생산 프로세스 관리<br />공급망 커뮤니케이션<br />업무 효율화 경험</p>
           </li>
           <li>
-            <time datetime="2022/2024">22-24</time>
+            <time datetime="2022/2024">22-24: ~2024</time>
             <div class="timeline-dot"></div>
             <h3>Customer Experience</h3>
             <p><span>22.07~</span> BALENCIAGA</p>
             <p><span>24.08</span> 럭셔리 브랜드 고객 응대<br />오프라인 구매 여정 이해<br />VMD 경험</p>
           </li>
           <li>
-            <time datetime="2024">2024</time>
+            <time datetime="2024/2026">2024-26: 2025</time>
             <div class="timeline-dot"></div>
             <h3>Design Foundation</h3>
             <p><span>24.10</span> GTQ Photoshop 1급 취득</p>
             <p><span>26.03~<br />26.06</span> 주노소프트 카페24<br />디자인스킨 제작 프리</p>
           </li>
           <li>
-            <time datetime="2025">2025</time>
+            <time datetime="2025/2026">~2026</time>
             <div class="timeline-dot"></div>
             <h3>E-commerce Operations</h3>
             <p><span>25.03~</span> (주) 유디포커스</p>
@@ -204,20 +184,43 @@
           </li>
           <li>
             <span>02</span>
-            <strong>Web Redesign</strong>
-            <p>서울예쁜한옥 리뉴얼 웹페이지</p>
-          </li>
-          <li>
-            <span>03</span>
             <strong>App Design</strong>
             <p>자린고비 절약 습관 앱 개발</p>
           </li>
           <li>
-            <span>04</span>
+            <span>03</span>
             <strong>Branding</strong>
             <p>Veil 향수 브랜드 아이덴티티</p>
           </li>
+          <li>
+            <span>04</span>
+            <strong>Web Redesign</strong>
+            <p>치과 웹 리디자인</p>
+          </li>
         </ol>
+      </section>
+
+      <section
+        class="banner-showcase section-panel reveal"
+        aria-labelledby="banner-title"
+      >
+        <div class="banner-showcase-head">
+          <p class="eyebrow">Selected Works</p>
+          <h2 id="banner-title">Banner Design</h2>
+          <span>10</span>
+        </div>
+        <div class="banner-track" aria-label="배너 디자인 가로 슬라이드" tabindex="0">
+          <figure><img src="./assets/banner1.png" alt="배너 디자인 1" /></figure>
+          <figure><img src="./assets/banner2.png" alt="배너 디자인 2" /></figure>
+          <figure><img src="./assets/banner3.png" alt="배너 디자인 3" /></figure>
+          <figure><img src="./assets/banner4.png" alt="배너 디자인 4" /></figure>
+          <figure><img src="./assets/banner5.png" alt="배너 디자인 5" /></figure>
+          <figure><img src="./assets/banner6.png" alt="배너 디자인 6" /></figure>
+          <figure><img src="./assets/banner7.png" alt="배너 디자인 7" /></figure>
+          <figure><img src="./assets/banner8.png" alt="배너 디자인 8" /></figure>
+          <figure><img src="./assets/banner9.png" alt="배너 디자인 9" /></figure>
+          <figure><img src="./assets/banner10.png" alt="배너 디자인 10" /></figure>
+        </div>
       </section>
 
       <section
@@ -230,6 +233,14 @@
             src="./assets/project-gwangju/hero.png?v=20260624"
             alt="밤의 광주한옥마을 전경"
           />
+        </div>
+
+        <div class="project-process-heading project-process-heading--warm">
+          <div>
+            <p>Project 01</p>
+            <h2>UX Design</h2>
+          </div>
+          <a class="project-site-button" href="#project-gwangju">Vite site</a>
         </div>
 
         <section class="gwangju-overview" aria-label="광주한옥마을 프로젝트 개요">
@@ -298,7 +309,7 @@
           </div>
         </section>
 
-        <section class="gwangju-structure" id="project-web">
+        <section class="gwangju-structure" id="project-gwangju-structure">
           <div class="gwangju-inner">
             <div class="gwangju-section-title">
               <h3>1. 서비스 구조 재정비</h3>
@@ -309,20 +320,23 @@
                 <p>기존 네비게이션 구조</p>
               </div>
               <img src="./assets/project-gwangju/Group%20297.png?v=20260624" alt="기존 네비게이션 구조" />
-              <ul class="gwangju-nav-problems" aria-label="기존 네비게이션 문제점">
-                <li>
-                  <b>P01</b>
-                  <span>서비스 / 콘텐츠 / 고객지원 메뉴가 혼재되어 사용 목적에 따른 탐색이 어려움</span>
-                </li>
-                <li>
-                  <b>P02</b>
-                  <span>카페 새오개길은 브랜드명으로, 서비스 성격이 명확하지 않음</span>
-                </li>
-                <li>
-                  <b>P03</b>
-                  <span>예약 조회가 고객센터 내부에 있어 예약 확인 접근성이 낮음</span>
-                </li>
-              </ul>
+              <div class="gwangju-problem-stack">
+                <p class="gwangju-problem-label">PLOBLUM</p>
+                <ul class="gwangju-nav-problems" aria-label="기존 네비게이션 문제점">
+                  <li>
+                    <b>P01</b>
+                    <span>서비스 / 콘텐츠 / 고객지원 메뉴가 혼재되어 사용 목적에 따른 탐색이 어려움</span>
+                  </li>
+                  <li>
+                    <b>P02</b>
+                    <span>카페 새오개길은 브랜드명으로, 서비스 성격이 명확하지 않음</span>
+                  </li>
+                  <li>
+                    <b>P03</b>
+                    <span>예약 조회가 고객센터 내부에 있어 예약 확인 접근성이 낮음</span>
+                  </li>
+                </ul>
+              </div>
             </div>
 
             <div class="gwangju-nav-after">
@@ -456,14 +470,47 @@
             <div class="gwangju-section-title">
               <h3>4. 감성 경험 부족</h3>
             </div>
-            <figure class="gwangju-moodboard" aria-label="광주한옥마을 감성 경험 무드보드"></figure>
+            <figure class="gwangju-moodboard" aria-label="광주한옥마을 감성 경험 무드보드">
+              <img src="./assets/project-gwangju/Group%20300.png?v=20260701" alt="광주한옥마을 타이포그래피와 컬러 무드보드" />
+            </figure>
+            <div class="gwangju-brand-showcase" aria-label="광주한옥마을 메인 페이지 브랜드 경험 화면">
+              <h4>MAIN PAGE</h4>
+              <img
+                class="gwangju-screen-top"
+                src="./assets/project-gwangju/image 475.png"
+                alt="개선된 한옥마을 메인 상단 화면"
+              />
+              <img
+                class="gwangju-screen-main"
+                src="./assets/project-gwangju/image 475-1.png"
+                alt="개선된 한옥마을 메인 페이지 전체 화면"
+              />
+              <div class="gwangju-brand-copy is-premium">
+                <span></span>
+                <b>Premium Brand</b>
+                <p>숙박 비교 플랫폼이 아닌 브랜드 경험에 집중</p>
+              </div>
+              <div class="gwangju-brand-copy is-emotional">
+                <span></span>
+                <b>Emotional Experience</b>
+                <p>자연광, 목재 질감, 전통 오브제 등 공간 경험 전달</p>
+              </div>
+              <div class="gwangju-brand-copy is-modern">
+                <span></span>
+                <b>Traditional + Mordern</b>
+                <p>전통 정체성 유지, 여백 미니멀 디자인 적용</p>
+              </div>
+            </div>
           </div>
         </section>
 
         <section class="app-project" id="project-app">
-          <div class="app-project-heading">
-            <p>Project 03</p>
-            <h2>App Design</h2>
+          <div class="app-project-heading project-process-heading">
+            <div>
+              <p>Project 02</p>
+              <h2>App Design</h2>
+            </div>
+            <a class="project-site-button" href="#project-app">Vite site</a>
           </div>
           <figure class="app-project-image">
             <img src="./assets/project-app/app-design.png" alt="캐릭터 성장형 절약 습관 앱 디자인 프로젝트" />
@@ -472,55 +519,46 @@
         </section>
 
         <section class="veil-project" id="project-brand">
-          <header class="veil-hero">
-            <nav class="veil-brand-nav" aria-label="Veil 브랜드 내비게이션">
-              <a href="#project-brand" aria-label="Veil 프로젝트 상단으로 이동">VEIL</a>
-              <div>
-                <span>SHOP</span>
-                <span>ABOUT</span>
-                <span>FRAGRANCE</span>
-                <span>CART (0)</span>
-              </div>
-            </nav>
-            <div class="veil-hero-visual" aria-hidden="true">
-              <div class="veil-body-shadow"></div>
-              <div class="veil-bottle">
-                <span>VEIL</span>
-              </div>
-              <i></i>
-              <i></i>
+          <header class="veil-hero" aria-label="Veil 향수 브랜드 아이덴티티 표지"></header>
+
+          <div class="project-process-heading project-process-heading--veil">
+            <div>
+              <p>Project 03</p>
+              <h2>Branding</h2>
             </div>
-            <div class="veil-project-meta">
-              <p>Project 04</p>
-              <div>
-                <h2>Veil 향수 브랜드 아이덴티티</h2>
-                <span>Personal work (100%)</span>
-              </div>
-            </div>
-          </header>
+            <a class="project-site-button" href="#project-brand">Vite site</a>
+          </div>
 
           <section class="veil-concept veil-section reveal" aria-labelledby="veil-concept-title">
-            <h3 id="veil-concept-title">Brand Concept</h3>
-            <p>
-              VEIL은 피부의 질감과 몸의 움직임에서 영감을 받은 프래그런스 브랜드입니다.
-              움직임 속 긴장과 열감, 그리고 이완 이후의 여운을 향과 시각 언어로
-              번역했으며, 피부의 상태를 컬러, 질감, 이미지 시스템으로 확장해
-              브랜드 경험 전체를 설계했습니다.
-            </p>
+            <div class="veil-concept-copy">
+              <h3 id="veil-concept-title">Brand Concept</h3>
+              <p>
+                VEIL은 피부의 질감과 몸의 움직임에서 영감을 받은 프래그런스 브랜드입니다.<br />
+                움직임 속 긴장과 열감, 그리고 이완 이후의 여운을 향과 시각 언어로 번역했으며,<br />
+                피부의 상태를 컬러, 질감, 이미지 시스템으로 확장해 브랜드 경험 전체를 설계했습니다.<br />
+                사용자가 향을 읽기보다 감각적으로 경험할 수 있도록 설계한 브랜딩과 웹 경험 디자인 프로젝트입니다.
+              </p>
+            </div>
           </section>
 
           <section class="veil-keywords veil-section reveal" aria-labelledby="veil-keyword-title">
             <h3 id="veil-keyword-title">Concept Keywords</h3>
             <div class="veil-keyword-board">
-              <span>Rhythm</span>
-              <span>Movement</span>
-              <span>Flex</span>
-              <span>Release</span>
-              <span>Pulse</span>
-              <span>Calm</span>
-              <span>Drift</span>
-              <span>Skin tension</span>
-              <span>Texture</span>
+              <figure class="veil-keyword-card is-movement">
+                <figcaption>
+                  <span>Movement</span>
+                  <span>Rhythm</span>
+                  <span>Release</span>
+                </figcaption>
+              </figure>
+              <figure class="veil-keyword-card is-texture" aria-label="Texture"></figure>
+              <figure class="veil-keyword-card is-calm">
+                <figcaption>
+                  <span>Skin tension</span>
+                  <span>Calm</span>
+                </figcaption>
+              </figure>
+              <p>Texture</p>
             </div>
           </section>
 
@@ -528,21 +566,24 @@
             <div class="veil-copy">
               <h3 id="veil-ia-title">컬렉션 중심<br />브랜드 경험 재설계</h3>
               <p>
-                기존 향수 브랜드의 향료 중심 전개에서 벗어나, VEIL은 하나의
-                <strong>컬렉션을 중심으로 브랜드 경험</strong>을 구성했습니다.
-                사용자가 제품보다 컬렉션을 먼저 경험하도록 메인과 Shop 페이지의
-                탐색 흐름을 정리했습니다.
+                기존 향수 브랜드의 향료 중심으로 전개하는 방식에서 벗어나,<br />
+                VEIL은 하나의 <strong>컬렉션을 중심으로 브랜드 경험</strong>을 구성했습니다.<br /><br />
+                메인 페이지와 Shop 페이지 전반에<br />
+                Movement Collection에 대한 서사를 반복적으로 노출하여<br />
+                사용자가 <strong>제품보다 컬렉션을 먼저 경험</strong>하도록 설계했습니다.
               </p>
             </div>
             <div class="veil-flow" aria-label="Veil 정보구조">
-              <p>INFORMATION ARCHITECTURE</p>
-              <ol>
-                <li>VEIL</li>
-                <li>Brand</li>
-                <li>Collection</li>
-                <li>Fragrance</li>
-                <li>Purchase</li>
-              </ol>
+              <p class="veil-flow-kicker">INFORMATION ARCHITECTURE</p>
+              <img
+                class="veil-ia-image"
+                src="./assets/정보구조도.png"
+                alt="Veil information architecture"
+              />
+              <p class="veil-flow-note">
+                <strong>사용자는 브랜드 → 컬렉션 → 향수 순서로 이동하며</strong><br />
+                Movement Collection의 서사를 자연스럽게 경험하게 됩니다.
+              </p>
             </div>
           </section>
 
@@ -562,8 +603,9 @@
           <section class="veil-collection veil-section reveal" aria-labelledby="veil-collection-title">
             <h3 id="veil-collection-title">Collection 01: Movement</h3>
             <p>
-              향을 단순한 향료의 조합이 아닌, 몸이 느끼는 감각의 변화로 해석하고
-              FLEX, PULSE, DRIFT를 하나의 경험 흐름으로 설계했습니다.
+              향을 단순한 향료의 조합이 아닌, 몸이 느끼는 감각의 변화로 해석하고자 했습니다.<br />
+              이를 위해 Movement Collection이라는 가상의 컬렉션을 기획하고,<br />
+              움직임 이전의 긴장(FLEX), 움직임 속의 열감(PULSE), 움직임 이후의 이완(DRIFT)을 하나의 경험 흐름으로 설계했습니다.
             </p>
             <div class="veil-scent-line">
               <article>
@@ -582,52 +624,93 @@
                 <i></i>
               </article>
             </div>
+            <p class="veil-collection-note">
+              웹에서는 향을 직접 전달할 수 없습니다.<br />
+              따라서 향의 상태를 피부 질감, 움직임의 흔적, 컬러와 이미지 시스템으로 번역하여 사용자가 화면을 통해서도 향의 분위기와 감각을 경험할 수 있도록 디자인했습니다.
+            </p>
           </section>
 
           <section class="veil-system reveal">
-            <div>
+            <div class="veil-type-system">
               <h3>01 Type System</h3>
               <p>
                 클래식 세리프 타이포를 메인으로 사용해 향의 무드를 유지하되,
-                전체 인터페이스는 미니멀한 구조로 정리했습니다.
+                전체 인터페이스는 미니멀한 구조로 정리해 브랜드가 과하게 올드해 보이지
+                않도록 균형을 맞췄습니다.
               </p>
-              <div class="veil-type-pair">
-                <span>Aa</span>
-                <span>Aa</span>
+              <div class="veil-type-samples">
+                <article>
+                  <span>Aa</span>
+                  <b>Playfair Display</b>
+                  <p>Hero Title Collection/ Title Section/ Heading</p>
+                </article>
+                <article>
+                  <span>Aa</span>
+                  <b>Playfair Display</b>
+                  <p>Navigation/ Product Information/ Body Copy</p>
+                </article>
               </div>
             </div>
-            <div>
+            <div class="veil-color-system">
               <h3>02 Color System</h3>
               <div class="veil-colors">
                 <span>C8B9B7</span>
                 <span>C5C3B2</span>
                 <span>B79C93</span>
               </div>
+              <img class="veil-typo-map" src="./assets/typo.png?v=20260701" alt="Movement Collection Colors 색상 흐름표" />
             </div>
           </section>
 
           <section class="veil-page-design reveal" aria-labelledby="veil-main-title">
             <h3 id="veil-main-title">01 Main Page</h3>
-            <div class="veil-page-grid">
-              <aside>
-                <p><b>01: Hero</b>Movement based fragrance.</p>
-                <p><b>02: Collection First Experience</b>제품보다 컬렉션을 먼저 경험하도록 배치</p>
-                <p><b>03: Fragrance slide</b>향을 상태 변화처럼 탐색</p>
-              </aside>
-              <div class="veil-main-screen" aria-label="Veil 메인 페이지 화면 목업">
-                <div class="veil-screen-hero"></div>
-                <div class="veil-screen-cards">
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                </div>
-                <div class="veil-screen-story"></div>
+            <div class="veil-main-annotated">
+              <figure class="veil-main-screen" aria-label="Veil 메인 페이지 화면 목업">
+                <img src="./assets/main.png" alt="Veil 메인 페이지 화면" />
+              </figure>
+              <div class="veil-note veil-note-hero">
+                <b>01: Hero</b>
+                <p>
+                  Movement based fragrance.<br /><br />
+                  피부의 질감과 몸의 움직임에서 영감을 받은 VEIL의
+                  <strong>브랜드 정체성</strong>을 첫 화면에서 직관적으로 전달합니다.
+                </p>
               </div>
-              <aside>
-                <p><b>04: Brand Story</b>에디토리얼 레이아웃으로 브랜드 스토리 구성</p>
-                <p><b>05: Instagram</b>SNS 콘텐츠로 브랜드 무드 확장</p>
-                <p><b>06: Newsletter</b>구독 액션으로 연결</p>
-              </aside>
+              <div class="veil-note veil-note-collection">
+                <b>02: Collection<br />First Experience</b>
+                <p>
+                  사용자가 제품보다 <strong>컬렉션을 먼저 경험</strong>할 수 있도록
+                  Movement Collection을 메인 페이지 초반에 배치했습니다.
+                </p>
+              </div>
+              <div class="veil-note veil-note-slide">
+                <b>03: Fragrance slide</b>
+                <p>
+                  향을 단순히 나열하는 대신, 움직임의
+                  <strong>상태 변화처럼 경험하도록</strong> 구성했습니다.
+                </p>
+              </div>
+              <div class="veil-note veil-note-story">
+                <b>04: Brand Story</b>
+                <p>
+                  <strong>에디토리얼 레이아웃</strong>을 활용해 브랜드 스토리 영역을 구성했습니다.
+                </p>
+              </div>
+              <div class="veil-note veil-note-instagram">
+                <b>05: Instagram</b>
+                <p>
+                  Community point<br /><br />
+                  SNS 콘텐츠를 활용하여 브랜드 무드를 확장했습니다.<br /><br />
+                  사용자는 실제 제품 이미지와 라이프스타일 이미지를 함께 경험할 수 있습니다.
+                </p>
+              </div>
+              <div class="veil-note veil-note-newsletter">
+                <b>06: Newsletter</b>
+                <p>
+                  마지막 섹션은 <strong>Full Width 이미지</strong>로 구성하여
+                  브랜드의 감각적인 무드를 유지한 채 구독 액션으로 연결되도록 설계했습니다.
+                </p>
+              </div>
             </div>
           </section>
 
@@ -642,16 +725,260 @@
               </p>
             </div>
             <div class="veil-shop-layout">
-              <div class="veil-phone"></div>
-              <div class="veil-product-page">
-                <div></div>
-                <ul>
-                  <li>FLEX</li>
-                  <li>PULSE</li>
-                  <li>DRIFT</li>
-                </ul>
+              <img class="veil-phone" src="./assets/project-veil/s%201.png" alt="Veil 모바일 Shop 화면" />
+              <div class="veil-product-page" aria-label="Veil Shop 상품 탐색 화면">
+                <div class="veil-product-topbar">
+                  <img src="./assets/project-veil/veil-logo.svg" alt="VEIL" />
+                  <span>SHOP</span>
+                  <span>ABOUT</span>
+                  <span>NEWSLETTER</span>
+                </div>
+                <section class="veil-product-intro">
+                  <p>MOVEMENT COLLECTION</p>
+                  <h4>States in<br />texture.</h4>
+                  <span>
+                    움직임 이전의 긴장,<br />
+                    움직임 속의 열감,<br />
+                    그리고 이완 이후의 여운.
+                  </span>
+                </section>
+                <div class="veil-shop-mood-grid">
+                  <article>
+                    <img src="./assets/project-veil/shop-mood-flex.png" alt="Flex texture" />
+                    <b>FLEX</b>
+                    <span>움직이기 직전의 차가운 긴장감</span>
+                  </article>
+                  <article>
+                    <img src="./assets/project-veil/shop-mood-pulse.png" alt="Pulse texture" />
+                    <b>PULSE</b>
+                    <span>피부에 올라오는 선명한 열감</span>
+                  </article>
+                  <article>
+                    <img src="./assets/project-veil/shop-mood-drift.png" alt="Drift texture" />
+                    <b>DRIFT</b>
+                    <span>흐르듯 조용하게 남는 이완</span>
+                  </article>
+                </div>
+                <div class="veil-product-row">
+                  <article>
+                    <img src="./assets/project-veil/flex.png" alt="Flex perfume" />
+                    <b>Flex</b>
+                    <span>176,000원</span>
+                  </article>
+                  <article>
+                    <img src="./assets/project-veil/pulse.png" alt="Pulse perfume" />
+                    <b>Pulse</b>
+                    <span>179,000원</span>
+                  </article>
+                  <article>
+                    <img src="./assets/project-veil/drift.png" alt="Drift perfume" />
+                    <b>Drift</b>
+                    <span>176,000원</span>
+                  </article>
+                </div>
+                <div class="veil-shop-timeline">
+                  <span>0 min</span>
+                  <span>30 min</span>
+                  <span>2 hr</span>
+                </div>
+                <section class="veil-gift-block">
+                  <img src="./assets/project-veil/shop-gift.png" alt="Veil discovery set" />
+                  <div>
+                    <p>GIFT SET</p>
+                    <h4>Not a perfume,<br />a second skin.</h4>
+                  </div>
+                </section>
               </div>
-              <div class="veil-phone is-small"></div>
+              <img class="veil-phone is-small" src="./assets/project-veil/iphone-15-pro-mockup-v2-top-view%201.png" alt="Veil 모바일 상세 화면" />
+              <div class="veil-shop-asides">
+                <p>
+                  향을 직접 경험할 수 없는 온라인 환경에서,<br />
+                  질감과 온도를 연상시키는 이미지를 활용해<br />
+                  향의 상태를 시각적으로 전달했습니다.
+                </p>
+                <p>
+                  <strong>Scent Timeline</strong><br /><br />
+                  향의 변화를 단순한 노트 정보 대신<br />
+                  시간의 흐름으로 표현했습니다.<br /><br />
+                  사용자는 향이 변화하는 과정을<br />
+                  직관적으로 이해할 수 있습니다.
+                </p>
+                <p>
+                  <strong>Discovery Set</strong><br /><br />
+                  향을 선택하기 전에 브랜드를 천천히<br />
+                  경험할 수 있도록 설계한 입문형 세트.
+                </p>
+              </div>
+            </div>
+          </section>
+        </section>
+
+        <section class="dental-project" id="project-web" aria-labelledby="dental-title">
+          <header class="dental-cover" aria-label="치과 웹 리디자인 표지">
+            <img src="./assets/치과표지.png?v=20260701" alt="서울 러브 페이스 치과 웹 리디자인 표지" />
+          </header>
+
+          <div class="project-process-heading project-process-heading--dental">
+            <div>
+              <p>Project 04</p>
+              <h2>Web Redesign</h2>
+            </div>
+            <a class="project-site-button" href="#project-web">Vite site</a>
+          </div>
+
+          <section class="dental-about dental-section reveal">
+            <div class="dental-kicker">ABOUT PROJECT</div>
+            <p class="dental-lead">
+              정보 중심의 기존 사이트를 얼굴 윤곽과 진료 경험의 신뢰감을 전하는
+              브랜드 경험형 랜딩 페이지로 재구성했습니다.
+            </p>
+            <h2 id="dental-title">
+              <span>Repositioning a</span>
+              <i aria-hidden="true"></i>
+              <span>Dental Clinic</span>
+              <span>into a</span>
+              <em aria-hidden="true"></em>
+              <span>Premium <b>Aesthetic Brand</b></span>
+            </h2>
+            <div class="dental-brief-grid">
+              <article>
+                <h3><span>!</span> TASK</h3>
+                <ul>
+                  <li>의료진 중심의 정보 구조</li>
+                  <li>브랜드 감성 부족</li>
+                  <li>시술 전후 콘텐츠 부족</li>
+                  <li>계절별 이벤트 커뮤니티</li>
+                  <li>상담 전환 유도 부족</li>
+                </ul>
+              </article>
+              <article>
+                <h3><span>+</span> SOLUTION</h3>
+                <ul>
+                  <li>브랜드 경험 중심 랜딩 페이지 재설계</li>
+                  <li>전후 콘텐츠를 통한 신뢰 강화</li>
+                  <li>니즈별 서비스 섹션과 스토리 구조 도입</li>
+                  <li>상담 흐름에 맞춘 화면 구성</li>
+                  <li>예약 상담 CTA 고정</li>
+                </ul>
+              </article>
+            </div>
+          </section>
+
+          <section class="dental-comparison dental-section reveal">
+            <div class="dental-section-heading">
+              <span>REDESIGN COMPARISON</span>
+              <h3>From Information<br />to <b>Impression</b></h3>
+              <p>
+                정보 중심의 병원 사이트를 브랜드 경험 중심의 랜딩 페이지로 재구성하여
+                신뢰와 인상을 동시에 전달하는 흐름으로 전환했습니다.
+              </p>
+            </div>
+            <div class="dental-before-after">
+              <article class="dental-browser is-before">
+                <p>Information-Driven<br />Dental Website</p>
+                <div class="browser-frame">
+                  <div class="browser-top"></div>
+                  <div class="old-site-layout">
+                    <aside></aside>
+                    <main>
+                      <span></span>
+                      <strong>서울예쁜얼굴치과</strong>
+                      <div></div>
+                    </main>
+                  </div>
+                </div>
+              </article>
+              <span class="dental-arrow" aria-hidden="true">→</span>
+              <article class="dental-browser is-after">
+                <p>Brand Experience<br />Landing Page</p>
+                <div class="browser-frame">
+                  <img src="./assets/project-dental/cover.png" alt="브랜드 경험 중심 치과 랜딩 페이지" />
+                </div>
+              </article>
+            </div>
+            <div class="dental-change-list" aria-label="리디자인 변화">
+              <ul>
+                <li><span>의료진 중심의 정보 구조</span><b>→</b><span>사용자 중심의 브랜드 경험 구조</span></li>
+                <li><span>치료 중심의 콘텐츠</span><b>→</b><span>인상과 변화 중심의 콘텐츠</span></li>
+                <li><span>계절별 이벤트 커뮤니티</span><b>→</b><span>스토리 기반 리뷰와 흐름</span></li>
+                <li><span>상담 전환 요소 부족</span><b>→</b><span>상담 예약 중심의 명확한 CTA</span></li>
+              </ul>
+            </div>
+            <figure class="dental-composite dental-comparison-image">
+              <img src="./assets/Slide%2016_9%20-%2015.png?v=20260701" alt="치과 웹 리디자인 비교 시안" />
+            </figure>
+          </section>
+
+          <section class="dental-color dental-section reveal">
+            <div class="dental-color-copy">
+              <span>COLOR SYSTEM</span>
+              <h3>신뢰감과 따뜻함을 담은<br />안정적인 컬러 시스템</h3>
+              <p>
+                자연에서 영감을 받은 그린과 뉴트럴 톤을 중심으로,
+                차갑지 않으면서도 전문적인 브랜드 인상을 형성했습니다.
+              </p>
+            </div>
+            <div class="dental-palette">
+              <figure style="--swatch:#a7b3a1"><span>PRIMARY</span><b>#A7B3A1</b></figure>
+              <figure style="--swatch:#f7f6f3"><span>BACKGROUND</span><b>#F7F6F3</b></figure>
+              <figure style="--swatch:#2f3431"><span>TEXT</span><b>#2F3431</b></figure>
+              <figure style="--swatch:#dddeda"><span>SUB</span><b>#DDDEDA</b></figure>
+              <figure style="--swatch:#ffffff"><span>WHITE</span><b>#FFFFFF</b></figure>
+            </div>
+            <div class="dental-gradient-bar" aria-hidden="true"></div>
+          </section>
+
+          <section class="dental-flow dental-section reveal">
+            <div class="dental-flow-copy">
+              <span>UX FLOW / INFORMATION ARCHITECTURE</span>
+              <h3>사용자의 여정을 고려한<br />정보 구조와 흐름 재설계</h3>
+              <p>
+                사용자의 심리적 여정과 상담 흐름을 기반으로
+                브랜드 경험을 구축하고, 상담 전환까지 자연스럽게 연결되는 구조를 설계했습니다.
+              </p>
+            </div>
+            <div class="dental-flow-body">
+              <div class="dental-print-mockup" aria-label="치과 웹페이지 인쇄형 목업">
+                <div class="dental-screen">
+                  <img src="./assets/project-dental/cover.png" alt="" />
+                </div>
+                <div class="dental-paper">
+                  <img src="./assets/Slide%2016_9%20-%2016.png" alt="" />
+                </div>
+              </div>
+              <ol class="dental-timeline">
+                <li><b>브랜드 경험</b><span>첫 화면에서 브랜드 방향과 핵심 인상 전달</span></li>
+                <li><b>변화 확인</b><span>전후 비교 콘텐츠로 시술 결과와 신뢰 형성</span></li>
+                <li><b>철학 이해</b><span>치료 방식과 기준을 브랜드 언어로 정리</span></li>
+                <li><b>진료 탐색</b><span>사용자 니즈별 서비스 흐름 제공</span></li>
+                <li><b>솔루션 선택</b><span>시술 목적에 맞는 정보 비교</span></li>
+                <li><b>상담 예약</b><span>명확한 CTA로 상담 신청 유도</span></li>
+              </ol>
+            </div>
+            <figure class="dental-composite dental-flow-image">
+              <img src="./assets/Slide%2016_9%20-%2016.png?v=20260701" alt="치과 정보 구조와 프로젝트 회고 시안" />
+            </figure>
+          </section>
+
+          <section class="dental-reflection dental-section reveal">
+            <div class="dental-reflection-copy">
+              <span>PROJECT REFLECTION</span>
+              <h3>사용자 경험과 브랜드의 가치를<br />연결하는 디지털 경험 설계</h3>
+              <p>
+                이번 프로젝트를 통해 단순한 클릭 이동이 아닌,
+                브랜드와 사용자의 감정을 연결하는 디지털 경험 설계의 중요성을 확인했습니다.
+              </p>
+              <ul>
+                <li><b>사용자 중심의 정보 구조 설계</b><span>시술 목적과 고민에 따라 빠르게 탐색하는 흐름을 구성했습니다.</span></li>
+                <li><b>신뢰와 공감을 주는 콘텐츠 전환</b><span>치료 정보보다 변화와 감각을 먼저 전달했습니다.</span></li>
+                <li><b>행동으로 이어지는 경험 설계</b><span>상담 예약까지 이어지는 명확한 동선을 만들었습니다.</span></li>
+              </ul>
+            </div>
+            <div class="dental-tilt-board" aria-hidden="true">
+              <img src="./assets/l1.png" alt="" />
+              <img src="./assets/l2.png" alt="" />
+              <img src="./assets/l3.png" alt="" />
+              <img src="./assets/l4.png" alt="" />
             </div>
           </section>
         </section>
@@ -665,12 +992,6 @@
         </span>
         <span>UX</span>
       </a>
-      <a class="floating-project-link" href="#project-web" data-section="project-web">
-        <span class="floating-project-thumb">
-          <img src="./assets/project-gwangju/Group%20297.png" alt="" />
-        </span>
-        <span>Web</span>
-      </a>
       <a class="floating-project-link" href="#project-app" data-section="project-app">
         <span class="floating-project-thumb">
           <img src="./assets/project-app/Frame%20142.png" alt="" />
@@ -682,6 +1003,12 @@
           <span class="floating-veil-thumb" aria-hidden="true">VEIL</span>
         </span>
         <span>Brand</span>
+      </a>
+      <a class="floating-project-link" href="#project-web" data-section="project-web">
+        <span class="floating-project-thumb">
+          <img src="./assets/치과표지.png" alt="" />
+        </span>
+        <span>Web</span>
       </a>
       <span class="floating-project-divider" aria-hidden="true"></span>
       <a class="floating-project-link is-profile" href="#profile" data-section="profile">
@@ -697,6 +1024,7 @@
       <a href="#hero">Back to top</a>
     </footer>
 
-    <script src="./script.js?v=20260625-branding" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js" defer></script>
+    <script src="./script.js?v=20260630-grass-wind" defer></script>
   </body>
 </html>

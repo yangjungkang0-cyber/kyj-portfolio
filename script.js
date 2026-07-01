@@ -1,225 +1,79 @@
 const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 
-const grassFrameCandidates = Array.from({ length: 7 }, (_, index) => {
-  const number = String(index + 1).padStart(2, "0");
-  return [`./assets/grass/grass-${number}.png.png`, `./assets/grass/grass-${number}.png`];
-});
+function decodeImage(image) {
+  if (image.complete && image.naturalWidth > 0) return Promise.resolve();
+  if (typeof image.decode === "function") {
+    return image.decode().catch(() => undefined);
+  }
 
-function setupGrassAnimation() {
-  const image = document.querySelector(".grass-frame");
-  const canvas = document.querySelector(".grass-canvas");
-
-  if (!image || !canvas) return;
-
-  const island = document.querySelector("[data-grass-animation]");
-  let loadedFrames = [];
-
-  const preloadFrame = (src) =>
-    new Promise((resolve) => {
-      const frame = new Image();
-      frame.onload = async () => {
-        if (frame.decode) {
-          try {
-            await frame.decode();
-          } catch {
-            // Decoding can fail in older browsers even when the image is usable.
-          }
-        }
-
-        resolve(frame);
-      };
-      frame.onerror = () => resolve(null);
-      frame.src = src;
-    });
-
-  const preload = grassFrameCandidates.map(async (candidates) => {
-    for (const src of candidates) {
-      const loaded = await preloadFrame(src);
-
-      if (loaded) return loaded;
-    }
-
-    return null;
-  });
-
-  Promise.all(preload).then((results) => {
-    loadedFrames = results.filter(Boolean);
-
-    if (!loadedFrames.length) {
-      image.classList.add("is-missing");
-      island?.classList.add("is-missing");
-      return;
-    }
-
-    island?.classList.add("has-frame");
-    image.src = loadedFrames[loadedFrames.length - 1].src;
-
-    const context = canvas.getContext("2d");
-    const firstFrame = loadedFrames[0];
-    const finalFrame = loadedFrames[loadedFrames.length - 1];
-
-    canvas.width = finalFrame.naturalWidth;
-    canvas.height = finalFrame.naturalHeight;
-
-    const background = sampleEdgeColor(finalFrame);
-    document.documentElement.style.setProperty("--hero-bg", background);
-
-    if (!context) return;
-
-    island?.classList.add("uses-canvas");
-
-    const blendCanvas = document.createElement("canvas");
-    const blendContext = blendCanvas.getContext("2d");
-    blendCanvas.width = canvas.width;
-    blendCanvas.height = canvas.height;
-
-    const drawFrame = (targetContext, frame, alpha = 1) => {
-      targetContext.globalAlpha = alpha;
-      targetContext.drawImage(frame, 0, 0, canvas.width, canvas.height);
-      targetContext.globalAlpha = 1;
-    };
-
-    const drawFrameLegacy = (frame, alpha = 1) => {
-      context.globalAlpha = alpha;
-      context.drawImage(frame, 0, 0, canvas.width, canvas.height);
-      context.globalAlpha = 1;
-    };
-
-    const drawBackground = () => {
-      context.clearRect(0, 0, canvas.width, canvas.height);
-      context.fillStyle = background;
-      context.fillRect(0, 0, canvas.width, canvas.height);
-    };
-
-    const drawStatic = (frame) => {
-      drawBackground();
-      drawFrameLegacy(frame);
-    };
-
-    if (prefersReducedMotion.matches || loadedFrames.length === 1) {
-      drawStatic(finalFrame);
-      return;
-    }
-
-    const duration = 10800;
-    const segmentDuration = duration / (loadedFrames.length - 1);
-    const ease = (value) => 1 - Math.pow(1 - value, 3);
-    const smoothStep = (value) => value * value * (3 - 2 * value);
-    let startTime;
-
-    const drawGrowingFrame = (currentFrame, nextFrame, localProgress, totalProgress) => {
-      if (!blendContext) return;
-
-      blendContext.clearRect(0, 0, canvas.width, canvas.height);
-      blendContext.fillStyle = background;
-      blendContext.fillRect(0, 0, canvas.width, canvas.height);
-      drawFrame(blendContext, currentFrame, 1);
-      drawFrame(blendContext, nextFrame, localProgress);
-
-      drawBackground();
-
-      const revealProgress = smoothStep(Math.min(totalProgress * 1.08, 1));
-      const revealTop = canvas.height * (0.82 - 0.78 * revealProgress);
-      const feather = canvas.height * 0.11;
-      const hardTop = Math.min(revealTop + feather, canvas.height);
-
-      context.save();
-      context.beginPath();
-      context.rect(0, hardTop, canvas.width, canvas.height - hardTop);
-      context.clip();
-      context.drawImage(blendCanvas, 0, 0);
-      context.restore();
-
-      if (revealTop < canvas.height) {
-        const bandHeight = Math.min(feather, canvas.height - revealTop);
-        const gradient = context.createLinearGradient(0, revealTop, 0, revealTop + bandHeight);
-        gradient.addColorStop(0, "rgba(0, 0, 0, 0)");
-        gradient.addColorStop(1, "rgba(0, 0, 0, 1)");
-
-        context.save();
-        context.globalCompositeOperation = "source-over";
-        context.beginPath();
-        context.rect(0, revealTop, canvas.width, bandHeight);
-        context.clip();
-        context.drawImage(blendCanvas, 0, 0);
-        context.globalCompositeOperation = "destination-in";
-        context.fillStyle = gradient;
-        context.fillRect(0, revealTop, canvas.width, bandHeight);
-        context.restore();
-      }
-    };
-
-    const animate = (timestamp) => {
-      if (!startTime) startTime = timestamp;
-
-      const elapsed = Math.min(timestamp - startTime, duration);
-      const totalProgress = elapsed / duration;
-      const rawIndex = elapsed / segmentDuration;
-      const frameIndex = Math.min(Math.floor(rawIndex), loadedFrames.length - 2);
-      const localProgress = ease(rawIndex - frameIndex);
-      const currentFrame = loadedFrames[frameIndex];
-      const nextFrame = loadedFrames[frameIndex + 1];
-
-      drawGrowingFrame(currentFrame, nextFrame, localProgress, totalProgress);
-
-      if (elapsed < duration) {
-        window.requestAnimationFrame(animate);
-      } else {
-        drawStatic(finalFrame);
-      }
-    };
-
-    drawGrowingFrame(firstFrame, loadedFrames[1], 0, 0);
-    window.requestAnimationFrame(animate);
+  return new Promise((resolve) => {
+    image.addEventListener("load", resolve, { once: true });
+    image.addEventListener("error", resolve, { once: true });
   });
 }
 
-function sampleEdgeColor(image) {
-  const sampler = document.createElement("canvas");
-  const context = sampler.getContext("2d", { willReadFrequently: true });
+async function setupGrassAnimation() {
+  const scene = document.querySelector("[data-grass-animation]");
+  const frames = scene ? Array.from(scene.querySelectorAll(".grass-frame")) : [];
 
-  if (!context) return "#ffffff";
+  if (!scene || !frames.length) return;
 
-  sampler.width = image.naturalWidth;
-  sampler.height = image.naturalHeight;
-  context.drawImage(image, 0, 0);
+  const finalFrame = frames[frames.length - 1];
 
-  const points = [];
-  const step = 32;
-  const edge = 18;
+  await decodeImage(finalFrame);
 
-  for (let x = 0; x < sampler.width; x += step) {
-    points.push([x, edge], [x, sampler.height - edge]);
+  frames.forEach((frame) => frame.classList.remove("is-visible"));
+  finalFrame.classList.add("is-visible");
+  scene.classList.add("is-ready");
+
+  if (prefersReducedMotion.matches) {
+    return;
   }
 
-  for (let y = 0; y < sampler.height; y += step) {
-    points.push([edge, y], [sampler.width - edge, y]);
+  if (!window.gsap) {
+    scene.classList.add("is-windy");
+    finalFrame.classList.add("is-breathing");
+    return;
   }
 
-  const total = points.reduce(
-    (sum, [x, y]) => {
-      const pixel = context.getImageData(x, y, 1, 1).data;
-      sum.red += pixel[0];
-      sum.green += pixel[1];
-      sum.blue += pixel[2];
-      return sum;
-    },
-    { red: 0, green: 0, blue: 0 }
-  );
+  gsap.set(scene, {
+    x: 0,
+    y: 0,
+    rotation: 0,
+    transformOrigin: "50% 58%",
+  });
+  gsap.set(finalFrame, {
+    scale: 1,
+    transformOrigin: "50% 62%",
+  });
 
-  const count = points.length;
-  const red = Math.round(total.red / count);
-  const green = Math.round(total.green / count);
-  const blue = Math.round(total.blue / count);
+  const wind = gsap.timeline({
+    repeat: -1,
+    defaults: { ease: "sine.inOut" },
+  });
 
-  return `rgb(${red}, ${green}, ${blue})`;
+  wind
+    .to(scene, { x: 7, y: -5, rotation: 0.12, duration: 4.2 })
+    .to(scene, { x: -5, y: 3, rotation: -0.08, duration: 3.8 })
+    .to(scene, { x: 4, y: -2, rotation: 0.05, duration: 3.4 })
+    .to(scene, { x: 0, y: 0, rotation: 0, duration: 4.4 }, ">-0.2");
+
+  gsap.to(finalFrame, {
+    scale: 1.009,
+    duration: 7.4,
+    ease: "sine.inOut",
+    yoyo: true,
+    repeat: -1,
+  });
 }
 
 function setupRevealAnimation() {
   const revealTargets = document.querySelectorAll(".reveal");
+  const timelineItems = document.querySelectorAll(".timeline li");
 
   if (prefersReducedMotion.matches) {
     revealTargets.forEach((target) => target.classList.add("is-visible"));
+    timelineItems.forEach((target) => target.classList.add("is-visible"));
     return;
   }
 
@@ -239,6 +93,26 @@ function setupRevealAnimation() {
   );
 
   revealTargets.forEach((target) => observer.observe(target));
+
+  const timelineObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+
+        const visibleItems = Array.from(timelineItems);
+        const index = visibleItems.indexOf(entry.target);
+        entry.target.style.transitionDelay = `${Math.max(index, 0) * 140}ms`;
+        entry.target.classList.add("is-visible");
+        timelineObserver.unobserve(entry.target);
+      });
+    },
+    {
+      threshold: 0.24,
+      rootMargin: "0px 0px -10% 0px",
+    }
+  );
+
+  timelineItems.forEach((target) => timelineObserver.observe(target));
 }
 
 function setupSmoothNavigation() {
