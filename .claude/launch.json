@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "static-site",
+      "runtimeExecutable": "/usr/bin/ruby",
+      "runtimeArgs": ["-run", "-e", "httpd", "/private/tmp/claude-501/-Users-yangjeong-Downloads-kyj-portfolio-main/0dc815f6-752c-4820-a22f-7db0210d0f56/scratchpad/preview-copy", "-p", "5199"],
+      "port": 5199
+    }
+  ]
+}
