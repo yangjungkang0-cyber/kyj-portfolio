@@ -20,7 +20,7 @@
       href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="./style.css?v=20260706-button-shimmer" />
+    <link rel="stylesheet" href="./style.css?v=20260709-site-buttons" />
   </head>
   <body>
     <a class="skip-link" href="#main">본문으로 이동</a>
@@ -29,7 +29,7 @@
 
     <header class="site-header" aria-label="주요 내비게이션">
       <a class="brand-mark" href="#hero" aria-label="포트폴리오 첫 화면으로 이동">
-        KYJ
+        <img src="./assets/images/logo.png" alt="잔디 이니셜 KYJ 로고" />
       </a>
       <nav class="nav-links">
         <a href="#profile">Profile</a>
@@ -62,6 +62,27 @@
         </figure>
       </section>
 
+      <section id="story" class="story-section" aria-label="포트폴리오 소개 스토리">
+        <div class="story-stage" data-story-stage>
+          <div class="story-scene story-scene-1" data-story-scene="1">
+            <p>Growing through every experience</p>
+          </div>
+          <div class="story-scene story-scene-2" data-story-scene="2">
+            <p>Let&rsquo;s explore my garden.</p>
+            <span class="story-arrow" aria-hidden="true">↓</span>
+          </div>
+          <div class="story-scene story-scene-3" data-story-scene="3">
+            <p class="story-kicker">Why Grass?</p>
+            <p class="story-body">
+              잔디는 화려하지 않지만 꾸준히 자랍니다.<br />
+              작은 변화가 모여 넓은 초원을 만들듯,<br />
+              저도 꾸준한 배움과 경험으로<br />
+              더 나은 사용자 경험을 만드는 디자이너가 되고자 합니다.
+            </p>
+          </div>
+        </div>
+      </section>
+
       <section
         id="profile"
         class="intro-grid section-panel reveal"
@@ -80,11 +101,27 @@
           </div>
         </div>
 
-        <address class="info-block">
-          <p class="eyebrow">Contact</p>
-          <a href="mailto:yangjungkkang0@gmail.com">yangjungkkang0@gmail.com</a>
-          <a href="tel:01027722217">010.2772.2217</a>
-        </address>
+        <div class="contact-edu-col">
+          <address class="info-block">
+            <p class="eyebrow">Contact</p>
+            <a href="mailto:yangjungkkang0@gmail.com">yangjungkkang0@gmail.com</a>
+            <a href="tel:01027722217">010.2772.2217</a>
+          </address>
+
+          <article class="education-block">
+            <p class="eyebrow">Education</p>
+            <dl>
+              <div>
+                <dt>2021.03 - 2022.02</dt>
+                <dd>장안대학교 관광경영학 졸업</dd>
+              </div>
+              <div>
+                <dt>2026.03 - 2026.06</dt>
+                <dd>성남 그린컴퓨터 AI 활용 반응형 웹 UI/UX 제작 과정 수료</dd>
+              </div>
+            </dl>
+          </article>
+        </div>
 
         <article class="about-block">
           <p class="eyebrow">About</p>
@@ -99,38 +136,29 @@
             고민합니다.
           </p>
         </article>
+      </section>
 
-        <article class="education-block">
-          <p class="eyebrow">Education</p>
-          <dl>
-            <div>
-              <dt>2021.03 - 2022.02</dt>
-              <dd>장안대학교 관광경영학 졸업</dd>
-            </div>
-            <div>
-              <dt>2026.03 - 2026.06</dt>
-              <dd>성남 그린컴퓨터 AI 활용 반응형 웹 UI/UX 제작 과정 수료</dd>
-            </div>
-          </dl>
-        </article>
-
-        <article class="tool-block">
-          <p class="eyebrow">Tool</p>
-          <ul>
-            <li><span>Design</span> Figma / Photoshop / Illustrator</li>
-            <li><span>Development</span> HTML / CSS / JavaScript</li>
-            <li><span>Dev Tools</span> Git / GitHub / VS Code</li>
-            <li><span>Collaboration</span> FigJam / Notion / Cafe24</li>
-            <li><span>Motion &amp; Media</span> CapCut</li>
-            <li><span>AI Tools</span> ChatGPT / Claude / Midjourney / Gemini</li>
-          </ul>
-        </article>
-
-        <img
-          class="moss-signature"
-          src="./assets/images/logo.png"
-          alt="잔디 질감으로 표현한 KYJ 이니셜 로고"
-        />
+      <section class="profile-marquee" aria-hidden="true">
+        <div class="marquee-track" data-marquee-track>
+          <div class="marquee-content" data-marquee-content>
+            <span class="marquee-item marquee-phrase">Keep Yourself Growing.</span>
+            <span class="marquee-dot">&bull;</span>
+            <img class="marquee-item marquee-logo" src="./assets/images/logo.png" alt="KYJ" />
+            <span class="marquee-dot">&bull;</span>
+            <span class="marquee-item marquee-phrase">Keep Yourself Growing.</span>
+            <span class="marquee-dot">&bull;</span>
+            <img class="marquee-item marquee-logo" src="./assets/images/logo.png" alt="KYJ" />
+            <span class="marquee-dot">&bull;</span>
+            <span class="marquee-item marquee-phrase">Keep Yourself Growing.</span>
+            <span class="marquee-dot">&bull;</span>
+            <img class="marquee-item marquee-logo" src="./assets/images/logo.png" alt="KYJ" />
+            <span class="marquee-dot">&bull;</span>
+            <span class="marquee-item marquee-phrase">Keep Yourself Growing.</span>
+            <span class="marquee-dot">&bull;</span>
+            <img class="marquee-item marquee-logo" src="./assets/images/logo.png" alt="KYJ" />
+            <span class="marquee-dot">&bull;</span>
+          </div>
+        </div>
       </section>
 
       <section
@@ -288,18 +316,20 @@
             <button type="button" class="banner-dock-arrow" data-banner-prev aria-label="이전 배너">
               ‹
             </button>
-            <ul class="banner-dock-list" data-banner-dock-list>
-              <li><button type="button" data-goto="0" aria-label="1번 배너로 이동"><img src="./assets/banner/banner1.png" alt="" /></button></li>
-              <li><button type="button" data-goto="1" aria-label="2번 배너로 이동"><img src="./assets/banner/banner2.png" alt="" /></button></li>
-              <li><button type="button" data-goto="2" aria-label="3번 배너로 이동"><img src="./assets/banner/banner3.png" alt="" /></button></li>
-              <li><button type="button" data-goto="3" aria-label="4번 배너로 이동"><img src="./assets/banner/banner4.png" alt="" /></button></li>
-              <li><button type="button" data-goto="4" aria-label="5번 배너로 이동"><img src="./assets/banner/banner5.png" alt="" /></button></li>
-              <li><button type="button" data-goto="5" aria-label="6번 배너로 이동"><img src="./assets/banner/banner6.png" alt="" /></button></li>
-              <li><button type="button" data-goto="6" aria-label="7번 배너로 이동"><img src="./assets/banner/banner7.png" alt="" /></button></li>
-              <li><button type="button" data-goto="7" aria-label="8번 배너로 이동"><img src="./assets/banner/banner8.png" alt="" /></button></li>
-              <li><button type="button" data-goto="8" aria-label="9번 배너로 이동"><img src="./assets/banner/banner9.png" alt="" /></button></li>
-              <li><button type="button" data-goto="9" aria-label="10번 배너로 이동"><img src="./assets/banner/banner10.png" alt="" /></button></li>
-            </ul>
+            <div class="banner-slider" data-banner-slider>
+              <div class="banner-slider-track">
+                <div class="banner-slider-fill" data-banner-slider-fill></div>
+                <div
+                  class="banner-slider-thumb"
+                  data-banner-slider-thumb
+                  role="slider"
+                  tabindex="0"
+                  aria-label="배너 슬라이드로 이동"
+                  aria-valuemin="1"
+                  aria-valuenow="1"
+                ></div>
+              </div>
+            </div>
             <button type="button" class="banner-dock-arrow" data-banner-next aria-label="다음 배너">
               ›
             </button>
@@ -317,13 +347,29 @@
             <p>Project 01</p>
             <h2>UX Design</h2>
           </div>
-          <a
-            class="project-site-button"
-            href="https://yangjungkang0-cyber.github.io/hanok/index.html"
-            target="_blank"
-            rel="noopener noreferrer"
-            >Vite site</a
-          >
+          <div class="project-site-links">
+            <a class="project-site-button project-site-button--outline" href="#">
+              <svg class="site-btn-icon" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <rect x="1.5" y="2.5" width="13" height="11" rx="1.5" stroke="currentColor" stroke-width="1.2" />
+                <line x1="1.5" y1="5.5" x2="14.5" y2="5.5" stroke="currentColor" stroke-width="1.2" />
+              </svg>
+              Original Site
+              <span class="site-btn-arrow" aria-hidden="true">↗</span>
+            </a>
+            <span class="project-site-divider" aria-hidden="true"></span>
+            <a
+              class="project-site-button project-site-button--solid"
+              href="https://yangjungkang0-cyber.github.io/hanok/index.html"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <svg class="site-btn-icon" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M8 0L9.5 6.5L16 8L9.5 9.5L8 16L6.5 9.5L0 8L6.5 6.5L8 0Z" />
+              </svg>
+              Redesign Site
+              <span class="site-btn-arrow" aria-hidden="true">↗</span>
+            </a>
+          </div>
         </div>
 
         <div class="gwangju-hero">
@@ -600,13 +646,29 @@
               <p>Project 02</p>
               <h2>App Design</h2>
             </div>
-            <a
-              class="project-site-button"
-              href="https://1team-jaringobi.vercel.app/"
-              target="_blank"
-              rel="noopener noreferrer"
-              >Vite site</a
-            >
+            <div class="project-site-links">
+              <a class="project-site-button project-site-button--outline" href="#">
+                <svg class="site-btn-icon" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <rect x="1.5" y="2.5" width="13" height="11" rx="1.5" stroke="currentColor" stroke-width="1.2" />
+                  <line x1="1.5" y1="5.5" x2="14.5" y2="5.5" stroke="currentColor" stroke-width="1.2" />
+                </svg>
+                Original Site
+                <span class="site-btn-arrow" aria-hidden="true">↗</span>
+              </a>
+              <span class="project-site-divider" aria-hidden="true"></span>
+              <a
+                class="project-site-button project-site-button--solid"
+                href="https://1team-jaringobi.vercel.app/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <svg class="site-btn-icon" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <path d="M8 0L9.5 6.5L16 8L9.5 9.5L8 16L6.5 9.5L0 8L6.5 6.5L8 0Z" />
+                </svg>
+                Redesign Site
+                <span class="site-btn-arrow" aria-hidden="true">↗</span>
+              </a>
+            </div>
           </div>
           <figure class="app-project-image">
             <img src="./assets/project-app/app-design.png" alt="캐릭터 성장형 절약 습관 앱 디자인 프로젝트" />
@@ -620,13 +682,29 @@
               <p>Project 03</p>
               <h2>Branding</h2>
             </div>
-            <a
-              class="project-site-button"
-              href="https://yangjungkang0-cyber.github.io/veil/"
-              target="_blank"
-              rel="noopener noreferrer"
-              >Vite site</a
-            >
+            <div class="project-site-links">
+              <a class="project-site-button project-site-button--outline" href="#">
+                <svg class="site-btn-icon" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <rect x="1.5" y="2.5" width="13" height="11" rx="1.5" stroke="currentColor" stroke-width="1.2" />
+                  <line x1="1.5" y1="5.5" x2="14.5" y2="5.5" stroke="currentColor" stroke-width="1.2" />
+                </svg>
+                Original Site
+                <span class="site-btn-arrow" aria-hidden="true">↗</span>
+              </a>
+              <span class="project-site-divider" aria-hidden="true"></span>
+              <a
+                class="project-site-button project-site-button--solid"
+                href="https://yangjungkang0-cyber.github.io/veil/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <svg class="site-btn-icon" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <path d="M8 0L9.5 6.5L16 8L9.5 9.5L8 16L6.5 9.5L0 8L6.5 6.5L8 0Z" />
+                </svg>
+                Redesign Site
+                <span class="site-btn-arrow" aria-hidden="true">↗</span>
+              </a>
+            </div>
           </div>
 
           <header class="veil-hero" aria-label="Veil 향수 브랜드 아이덴티티 표지"></header>
@@ -858,13 +936,29 @@
               <p>Project 04</p>
               <h2>Web Redesign</h2>
             </div>
-            <a
-              class="project-site-button"
-              href="https://yangjungkang0-cyber.github.io/dental-clinic-redesign/"
-              target="_blank"
-              rel="noopener noreferrer"
-              >Vite site</a
-            >
+            <div class="project-site-links">
+              <a class="project-site-button project-site-button--outline" href="#">
+                <svg class="site-btn-icon" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <rect x="1.5" y="2.5" width="13" height="11" rx="1.5" stroke="currentColor" stroke-width="1.2" />
+                  <line x1="1.5" y1="5.5" x2="14.5" y2="5.5" stroke="currentColor" stroke-width="1.2" />
+                </svg>
+                Original Site
+                <span class="site-btn-arrow" aria-hidden="true">↗</span>
+              </a>
+              <span class="project-site-divider" aria-hidden="true"></span>
+              <a
+                class="project-site-button project-site-button--solid"
+                href="https://yangjungkang0-cyber.github.io/dental-clinic-redesign/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <svg class="site-btn-icon" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <path d="M8 0L9.5 6.5L16 8L9.5 9.5L8 16L6.5 9.5L0 8L6.5 6.5L8 0Z" />
+                </svg>
+                Redesign Site
+                <span class="site-btn-arrow" aria-hidden="true">↗</span>
+              </a>
+            </div>
           </div>
 
           <header class="dental-cover" aria-label="치과 웹 리디자인 표지">
@@ -1238,7 +1332,7 @@
       </a>
       <a class="floating-project-link" href="#project-buja" data-section="project-buja">
         <span class="floating-project-thumb">
-          <img src="./assets/project-buja/after.png" alt="" />
+          <img src="./assets/buja.png" alt="" />
         </span>
         <span>Team</span>
       </a>
@@ -1258,6 +1352,6 @@
 
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/ScrollTrigger.min.js" defer></script>
-    <script src="./script.js?v=20260706-button-shimmer" defer></script>
+    <script src="./script.js?v=20260709-site-buttons" defer></script>
   </body>
 </html>
