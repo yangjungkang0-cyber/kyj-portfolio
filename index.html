@@ -20,7 +20,7 @@
       href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="./style.css?v=20260709-site-buttons" />
+    <link rel="stylesheet" href="./style.css?v=20260715-movement-scale" />
   </head>
   <body>
     <a class="skip-link" href="#main">본문으로 이동</a>
@@ -63,21 +63,28 @@
       </section>
 
       <section id="story" class="story-section" aria-label="포트폴리오 소개 스토리">
+        <div class="story-backdrop" data-story-backdrop>
+          <div class="story-texture" data-story-texture aria-hidden="true"></div>
+        </div>
         <div class="story-stage" data-story-stage>
           <div class="story-scene story-scene-1" data-story-scene="1">
-            <p>Growing through every experience</p>
+            <p class="story-grow-text">
+              <span class="story-word" data-word>Growing</span>
+              <span class="story-word" data-word>through</span>
+              <span class="story-word" data-word>every</span>
+              <span class="story-word" data-word>experience</span>
+            </p>
           </div>
           <div class="story-scene story-scene-2" data-story-scene="2">
-            <p>Let&rsquo;s explore my garden.</p>
-            <span class="story-arrow" aria-hidden="true">↓</span>
+            <p class="story-garden-text" data-garden-text>Let&rsquo;s explore my garden.</p>
           </div>
           <div class="story-scene story-scene-3" data-story-scene="3">
-            <p class="story-kicker">Why Grass?</p>
+            <p class="story-kicker" data-story-kicker>Why Grass?</p>
             <p class="story-body">
-              잔디는 화려하지 않지만 꾸준히 자랍니다.<br />
-              작은 변화가 모여 넓은 초원을 만들듯,<br />
-              저도 꾸준한 배움과 경험으로<br />
-              더 나은 사용자 경험을 만드는 디자이너가 되고자 합니다.
+              <span class="story-line">잔디는 화려하지 않지만 꾸준히 자랍니다.</span>
+              <span class="story-line">작은 변화가 모여 넓은 초원을 만들듯,</span>
+              <span class="story-line">저도 꾸준한 배움과 경험으로</span>
+              <span class="story-line">더 나은 사용자 경험을 만드는 디자이너가 되고자 합니다.</span>
             </p>
           </div>
         </div>
@@ -104,8 +111,8 @@
         <div class="contact-edu-col">
           <address class="info-block">
             <p class="eyebrow">Contact</p>
-            <a href="mailto:yangjungkkang0@gmail.com">yangjungkkang0@gmail.com</a>
-            <a href="tel:01027722217">010.2772.2217</a>
+            <a href="mailto:yangjungkang0@gmail.com">yangjungkang0@gmail.com</a>
+            <a href="tel:01027272217">010.2727.2217</a>
           </address>
 
           <article class="education-block">
@@ -161,6 +168,47 @@
         </div>
       </section>
 
+      <section class="tool-garden section-panel reveal" aria-label="사용 툴 소개">
+        <p class="eyebrow tool-garden-eyebrow">Tool</p>
+        <div class="tool-garden-inner">
+          <svg class="tool-lines" data-tool-lines aria-hidden="true"></svg>
+          <div class="tool-garden-visual">
+            <img class="tool-garden-rock" src="./assets/grass/grass2.png" alt="" aria-hidden="true" />
+
+            <div class="tool-stem tool-stem--flush" data-connect="collab" style="--x: 11.8%; --base: 63%;">
+              <span class="tool-badge"><img src="./assets/tools/icon1.png" alt="Notion" loading="lazy" /></span>
+            </div>
+            <div class="tool-stem tool-stem--flush" data-connect="development" style="--x: 24.7%; --base: 78%;">
+              <span class="tool-badge"><img src="./assets/tools/icon2.png" alt="HTML5" loading="lazy" /></span>
+            </div>
+            <div class="tool-stem tool-stem--flush" data-connect="design" style="--x: 36%; --base: 85%;">
+              <span class="tool-badge"><img src="./assets/tools/icon3.png" alt="Photoshop" loading="lazy" /></span>
+            </div>
+            <div class="tool-stem tool-stem--flush" data-connect="design" style="--x: 49.4%; --base: 97%;">
+              <span class="tool-badge"><img src="./assets/tools/icon4.png" alt="Figma" loading="lazy" /></span>
+            </div>
+            <div class="tool-stem tool-stem--flush" data-connect="collab" style="--x: 62.4%; --base: 85%;">
+              <span class="tool-badge"><img src="./assets/tools/icon5.png" alt="Cafe24" loading="lazy" /></span>
+            </div>
+            <div class="tool-stem tool-stem--flush" data-connect="development" style="--x: 73.6%; --base: 78%;">
+              <span class="tool-badge"><img src="./assets/tools/icon6.png" alt="CSS3" loading="lazy" /></span>
+            </div>
+            <div class="tool-stem tool-stem--flush" data-connect="devtools" style="--x: 87.1%; --base: 63%;">
+              <span class="tool-badge"><img src="./assets/tools/icon7.png" alt="GitHub" loading="lazy" /></span>
+            </div>
+          </div>
+
+          <ul class="tool-legend" data-tool-legend>
+            <li data-legend="design"><span class="tool-dot"></span><div><b>Design</b><p>Figma / Photoshop / Illustrator</p></div></li>
+            <li data-legend="development"><span class="tool-dot"></span><div><b>Development</b><p>HTML / CSS / JavaScript</p></div></li>
+            <li data-legend="devtools"><span class="tool-dot"></span><div><b>Dev Tools</b><p>Git / GitHub / VS Code</p></div></li>
+            <li data-legend="collab"><span class="tool-dot"></span><div><b>Platform</b><p>Notion / Cafe24</p></div></li>
+            <li data-legend="motion"><span class="tool-dot"></span><div><b>Motion &amp; Video</b><p>CapCut</p></div></li>
+            <li data-legend="ai"><span class="tool-dot"></span><div><b>AI Tools</b><p>ChatGPT / Claude / Midjourney / Gemini</p></div></li>
+          </ul>
+        </div>
+      </section>
+
       <section
         id="experience"
         class="experience section-panel reveal"
@@ -196,6 +244,7 @@
             <h3>E-commerce Operations</h3>
             <p><span>26.03~<br />26.06</span> 주노소프트 카페24<br />디자인스킨 제작 프리</p>
             <p><span>26.06</span> AIAT 자격증 합격예시<br />파일 제작제공</p>
+            <p><span>26.07</span> 웹네스트 앱 제작 참여</p>
           </li>
         </ol>
       </section>
@@ -348,7 +397,7 @@
             <h2>UX Design</h2>
           </div>
           <div class="project-site-links">
-            <a class="project-site-button project-site-button--outline" href="#">
+            <a class="project-site-button project-site-button--outline" href="http://www.hanokmaeul.com/" target="_blank" rel="noopener noreferrer">
               <svg class="site-btn-icon" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                 <rect x="1.5" y="2.5" width="13" height="11" rx="1.5" stroke="currentColor" stroke-width="1.2" />
                 <line x1="1.5" y1="5.5" x2="14.5" y2="5.5" stroke="currentColor" stroke-width="1.2" />
@@ -647,12 +696,12 @@
               <h2>App Design</h2>
             </div>
             <div class="project-site-links">
-              <a class="project-site-button project-site-button--outline" href="#">
+              <a class="project-site-button project-site-button--outline" href="https://app.notion.com/p/da5a90bb4a5083609f26017769dacc65" target="_blank" rel="noopener noreferrer">
                 <svg class="site-btn-icon" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                   <rect x="1.5" y="2.5" width="13" height="11" rx="1.5" stroke="currentColor" stroke-width="1.2" />
                   <line x1="1.5" y1="5.5" x2="14.5" y2="5.5" stroke="currentColor" stroke-width="1.2" />
                 </svg>
-                Original Site
+                Notion
                 <span class="site-btn-arrow" aria-hidden="true">↗</span>
               </a>
               <span class="project-site-divider" aria-hidden="true"></span>
@@ -665,7 +714,7 @@
                 <svg class="site-btn-icon" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                   <path d="M8 0L9.5 6.5L16 8L9.5 9.5L8 16L6.5 9.5L0 8L6.5 6.5L8 0Z" />
                 </svg>
-                Redesign Site
+                Web App
                 <span class="site-btn-arrow" aria-hidden="true">↗</span>
               </a>
             </div>
@@ -683,15 +732,6 @@
               <h2>Branding</h2>
             </div>
             <div class="project-site-links">
-              <a class="project-site-button project-site-button--outline" href="#">
-                <svg class="site-btn-icon" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                  <rect x="1.5" y="2.5" width="13" height="11" rx="1.5" stroke="currentColor" stroke-width="1.2" />
-                  <line x1="1.5" y1="5.5" x2="14.5" y2="5.5" stroke="currentColor" stroke-width="1.2" />
-                </svg>
-                Original Site
-                <span class="site-btn-arrow" aria-hidden="true">↗</span>
-              </a>
-              <span class="project-site-divider" aria-hidden="true"></span>
               <a
                 class="project-site-button project-site-button--solid"
                 href="https://yangjungkang0-cyber.github.io/veil/"
@@ -701,7 +741,7 @@
                 <svg class="site-btn-icon" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                   <path d="M8 0L9.5 6.5L16 8L9.5 9.5L8 16L6.5 9.5L0 8L6.5 6.5L8 0Z" />
                 </svg>
-                Redesign Site
+                Vite site
                 <span class="site-btn-arrow" aria-hidden="true">↗</span>
               </a>
             </div>
@@ -838,7 +878,23 @@
                 <span>C5C3B2</span>
                 <span>B79C93</span>
               </div>
-              <img class="veil-typo-map" src="./assets/typo.png?v=20260701" alt="Movement Collection Colors 색상 흐름표" />
+              <div class="veil-movement-scale" aria-label="Movement Collection Colors 색상 흐름표">
+                <div class="veil-movement-line">
+                  <div class="veil-movement-point">
+                    <span class="veil-movement-dot"></span>
+                    <span class="veil-movement-label">Tension</span>
+                  </div>
+                  <div class="veil-movement-point">
+                    <span class="veil-movement-dot"></span>
+                    <span class="veil-movement-label">Heat</span>
+                  </div>
+                  <div class="veil-movement-point">
+                    <span class="veil-movement-dot"></span>
+                    <span class="veil-movement-label">Release</span>
+                  </div>
+                </div>
+                <p class="veil-movement-caption">Movement Collection Colors</p>
+              </div>
             </div>
           </section>
 
@@ -937,7 +993,7 @@
               <h2>Web Redesign</h2>
             </div>
             <div class="project-site-links">
-              <a class="project-site-button project-site-button--outline" href="#">
+              <a class="project-site-button project-site-button--outline" href="http://goodfacedent.kr/" target="_blank" rel="noopener noreferrer">
                 <svg class="site-btn-icon" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                   <rect x="1.5" y="2.5" width="13" height="11" rx="1.5" stroke="currentColor" stroke-width="1.2" />
                   <line x1="1.5" y1="5.5" x2="14.5" y2="5.5" stroke="currentColor" stroke-width="1.2" />
@@ -1346,12 +1402,18 @@
     </nav>
 
     <footer class="site-footer">
-      <p>Kang Yangjung Portfolio</p>
-      <a href="#hero">Back to top</a>
+      <div class="site-footer-top">
+        <p>Kang Yangjung Portfolio</p>
+        <a href="#hero">Back to top</a>
+      </div>
+      <p class="site-footer-message reveal">See you in the next season.</p>
+      <div class="site-footer-grass-wrap reveal">
+        <img class="site-footer-grass" src="./assets/footer.png" alt="" aria-hidden="true" />
+      </div>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/ScrollTrigger.min.js" defer></script>
-    <script src="./script.js?v=20260709-site-buttons" defer></script>
+    <script src="./script.js?v=20260715-movement-scale" defer></script>
   </body>
 </html>

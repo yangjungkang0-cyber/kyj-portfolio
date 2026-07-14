@@ -118,30 +118,23 @@ function setupHeroScrollEffect() {
   if (prefersReducedMotion.matches || !window.gsap || !window.ScrollTrigger) return;
 
   const hero = document.querySelector(".hero");
-  const title = document.getElementById("hero-title");
+  const grassStage = document.querySelector(".grass-stage");
 
-  if (!hero || !title) return;
+  if (!hero || !grassStage) return;
 
   gsap.registerPlugin(ScrollTrigger);
-  gsap.set(title, { transformOrigin: "50% 50%" });
 
-  gsap
-    .timeline({
-      scrollTrigger: {
-        trigger: hero,
-        start: "top top",
-        end: "+=85%",
-        scrub: 0.6,
-        pin: true,
-        anticipatePin: 1,
-      },
-    })
-    .to(title, { scale: 0.6, duration: 0.55, ease: "power1.inOut" })
-    .to(
-      title,
-      { y: 110, opacity: 0, scale: 0.4, duration: 0.45, ease: "power1.in" },
-      ">-0.05"
-    );
+  gsap.to(grassStage, {
+    y: 36,
+    opacity: 0.4,
+    ease: "none",
+    scrollTrigger: {
+      trigger: hero,
+      start: "top top",
+      end: "bottom top",
+      scrub: 0.6,
+    },
+  });
 }
 
 function setupStoryScenes() {
@@ -153,6 +146,12 @@ function setupStoryScenes() {
   const scene1 = stage.querySelector('[data-story-scene="1"]');
   const scene2 = stage.querySelector('[data-story-scene="2"]');
   const scene3 = stage.querySelector('[data-story-scene="3"]');
+  const words = Array.from(scene1.querySelectorAll("[data-word]"));
+  const gardenText = scene2.querySelector("[data-garden-text]");
+  const backdrop = section.querySelector("[data-story-backdrop]");
+  const texture = section.querySelector("[data-story-texture]");
+  const kicker = scene3.querySelector("[data-story-kicker]");
+  const lines = Array.from(scene3.querySelectorAll(".story-line"));
 
   if (prefersReducedMotion.matches || !window.gsap || !window.ScrollTrigger) {
     return;
@@ -161,25 +160,53 @@ function setupStoryScenes() {
   gsap.registerPlugin(ScrollTrigger);
   stage.classList.add("is-pinned");
 
-  gsap.set(scene1, { opacity: 1, rotateX: 0, transformOrigin: "50% 100%" });
-  gsap.set(scene2, { opacity: 0, rotateX: 25, transformOrigin: "50% 0%" });
-  gsap.set(scene3, { opacity: 0, y: 24 });
+  gsap.set(words, { color: "#c9cdbf" });
+  gsap.set(scene1, { autoAlpha: 1 });
+  gsap.set(scene2, { autoAlpha: 0 });
+  gsap.set(gardenText, { rotateX: 25, transformOrigin: "50% 100%", scale: 1 });
+  gsap.set(scene3, { autoAlpha: 0 });
+  gsap.set(kicker, { opacity: 0, y: 16 });
+  gsap.set(lines, { opacity: 0, y: 14 });
+  gsap.set(backdrop, { backgroundColor: "#f7f5ef" });
+  gsap.set(texture, { opacity: 0 });
 
-  gsap
-    .timeline({
-      scrollTrigger: {
-        trigger: section,
-        start: "top top",
-        end: "+=260%",
-        scrub: 0.6,
-        pin: true,
-        anticipatePin: 1,
-      },
-    })
-    .to(scene1, { opacity: 0, rotateX: -60, y: -30, duration: 1, ease: "power1.inOut" })
-    .to(scene2, { opacity: 1, rotateX: 0, duration: 1, ease: "power1.out" }, "<0.15")
-    .to(scene2, { opacity: 0, y: -24, duration: 0.9, ease: "power1.in" }, "+=0.7")
-    .to(scene3, { opacity: 1, y: 0, duration: 1, ease: "power1.out" }, "<0.15");
+  const tl = gsap.timeline({
+    scrollTrigger: {
+      trigger: section,
+      start: "top top",
+      end: "+=" + window.innerHeight * 4.5,
+      scrub: 0.6,
+      pin: true,
+      anticipatePin: 1,
+    },
+  });
+
+  words.forEach((word, index) => {
+    tl.to(
+      word,
+      { color: "#1c1f1a", y: 0, scale: 1, duration: 0.6, ease: "power2.out" },
+      index === 0 ? 0 : "+=0.05"
+    ).fromTo(word, { y: 6, scale: 0.96 }, { y: 0, scale: 1, duration: 0.6, ease: "power2.out" }, "<");
+  });
+
+  tl.to({}, { duration: 0.8 });
+
+  tl.to(scene1, { autoAlpha: 0, y: -20, duration: 0.8, ease: "power1.inOut" })
+    .set(scene2, { autoAlpha: 1 })
+    .to(gardenText, { rotateX: 0, duration: 1, ease: "power2.out" }, "<");
+
+  tl.to({}, { duration: 0.4 });
+
+  tl.addLabel("growzoom")
+    .to(gardenText, { scale: 24, duration: 2.4, ease: "power1.in" }, "growzoom")
+    .to(backdrop, { backgroundColor: "#5e7658", duration: 2.4, ease: "power1.inOut" }, "growzoom")
+    .to(texture, { opacity: 0.06, duration: 2, ease: "sine.inOut" }, "growzoom+=0.3")
+    .to(gardenText, { autoAlpha: 0, duration: 0.4 }, "growzoom+=2");
+
+  tl.set(scene2, { autoAlpha: 0 })
+    .set(scene3, { autoAlpha: 1 })
+    .to(kicker, { opacity: 1, y: 0, duration: 0.7, ease: "power2.out" })
+    .to(lines, { opacity: 1, y: 0, duration: 0.6, ease: "power2.out", stagger: 0.18 }, "<0.2");
 }
 
 async function setupGrassAnimation() {
@@ -217,31 +244,10 @@ async function setupGrassAnimation() {
     transformOrigin: "50% 62%",
   });
 
-  const sway = gsap.timeline({
-    repeat: -1,
-    defaults: { ease: "sine.inOut" },
-  });
-
-  sway
-    .to(scene, { x: 16, rotation: 0.55, duration: 4.6 })
-    .to(scene, { x: -12, rotation: -0.4, duration: 4.0 })
-    .to(scene, { x: 9, rotation: 0.3, duration: 3.6 })
-    .to(scene, { x: 0, rotation: 0, duration: 4.2 }, ">-0.15");
-
-  const float = gsap.timeline({
-    repeat: -1,
-    defaults: { ease: "sine.inOut" },
-  });
-
-  float
-    .to(scene, { y: -18, duration: 3.8 })
-    .to(scene, { y: 8, duration: 3.4 })
-    .to(scene, { y: -10, duration: 3.2 })
-    .to(scene, { y: 0, duration: 3.6 }, ">-0.1");
-
-  gsap.to(finalFrame, {
-    scale: 1.018,
-    duration: 6.6,
+  gsap.to(scene, {
+    y: -8,
+    rotation: 0.35,
+    duration: 8,
     ease: "sine.inOut",
     yoyo: true,
     repeat: -1,
@@ -901,6 +907,173 @@ function setupProfileMarquee() {
   observer.observe(section);
 }
 
+function setupToolGarden() {
+  const section = document.querySelector(".tool-garden");
+  const svg = section ? section.querySelector("[data-tool-lines]") : null;
+  const container = section ? section.querySelector(".tool-garden-inner") : null;
+  if (!section || !svg || !container) return;
+
+  const SVG_NS = "http://www.w3.org/2000/svg";
+  const stems = Array.from(section.querySelectorAll("[data-connect]"));
+  let hasRevealed = false;
+
+  section.querySelectorAll(".tool-badge img[data-icon]").forEach((img) => {
+    img.addEventListener(
+      "error",
+      () => {
+        const span = document.createElement("span");
+        span.className = "tool-badge-fallback";
+        span.textContent = img.dataset.fallback || "?";
+        img.replaceWith(span);
+      },
+      { once: true }
+    );
+  });
+
+  const drawLines = () => {
+    const containerRect = container.getBoundingClientRect();
+    if (containerRect.width === 0) return [];
+
+    svg.setAttribute("viewBox", `0 0 ${containerRect.width} ${containerRect.height}`);
+    svg.innerHTML = "";
+
+    const defs = document.createElementNS(SVG_NS, "defs");
+    svg.appendChild(defs);
+
+    const anchors = {};
+    stems.forEach((stem) => {
+      anchors[stem.dataset.connect] = stem;
+    });
+
+    const connectors = [];
+
+    Object.entries(anchors).forEach(([key, stem]) => {
+      const dot = section.querySelector(`[data-legend="${key}"] .tool-dot`);
+      const textEl = section.querySelector(`[data-legend="${key}"] div`);
+      const badge = stem.querySelector(".tool-badge");
+      if (!dot || !badge) return;
+
+      const badgeRect = badge.getBoundingClientRect();
+      const dotRect = dot.getBoundingClientRect();
+
+      const x1 = badgeRect.left + badgeRect.width / 2 - containerRect.left;
+      const y1 = badgeRect.top - containerRect.top;
+      const x2 = dotRect.left + dotRect.width / 2 - containerRect.left;
+      const y2 = dotRect.top + dotRect.height / 2 - containerRect.top;
+      const midX = x1 + (x2 - x1) * 0.55;
+      const topY = Math.min(y1 - 18, y2);
+      const d = `M ${x1} ${y1} L ${x1} ${topY} L ${midX} ${topY} L ${midX} ${y2} L ${x2} ${y2}`;
+
+      const maskId = `tool-line-mask-${key}`;
+      const mask = document.createElementNS(SVG_NS, "mask");
+      mask.setAttribute("id", maskId);
+      mask.setAttribute("maskUnits", "userSpaceOnUse");
+      const maskPath = document.createElementNS(SVG_NS, "path");
+      maskPath.setAttribute("d", d);
+      maskPath.setAttribute("fill", "none");
+      maskPath.setAttribute("stroke", "#ffffff");
+      maskPath.setAttribute("stroke-width", "10");
+      maskPath.setAttribute("stroke-linecap", "round");
+      mask.appendChild(maskPath);
+      defs.appendChild(mask);
+
+      const path = document.createElementNS(SVG_NS, "path");
+      path.setAttribute("d", d);
+      path.setAttribute("fill", "none");
+      path.setAttribute("stroke", "rgba(93, 107, 60, 0.4)");
+      path.setAttribute("stroke-width", "1");
+      path.setAttribute("stroke-dasharray", "3 4");
+      path.setAttribute("mask", `url(#${maskId})`);
+      svg.appendChild(path);
+
+      const length = maskPath.getTotalLength();
+      maskPath.setAttribute("stroke-dasharray", String(length));
+      maskPath.setAttribute("stroke-dashoffset", hasRevealed ? "0" : String(length));
+
+      if (hasRevealed) {
+        if (dot) {
+          dot.style.opacity = "1";
+          dot.style.transform = "scale(1)";
+        }
+        if (textEl) {
+          textEl.style.opacity = "1";
+          textEl.style.transform = "none";
+        }
+      } else if (!prefersReducedMotion.matches && window.gsap) {
+        if (dot) gsap.set(dot, { scale: 0.8, opacity: 0, transformOrigin: "50% 50%" });
+        if (textEl) gsap.set(textEl, { opacity: 0, y: 8 });
+      }
+
+      connectors.push({ key, maskPath, length, dot, textEl });
+    });
+
+    return connectors;
+  };
+
+  const playReveal = (connectors) => {
+    if (prefersReducedMotion.matches || !window.gsap) {
+      connectors.forEach(({ maskPath, dot, textEl }) => {
+        maskPath.setAttribute("stroke-dashoffset", "0");
+        if (dot) {
+          dot.style.opacity = "1";
+          dot.style.transform = "scale(1)";
+        }
+        if (textEl) {
+          textEl.style.opacity = "1";
+          textEl.style.transform = "none";
+        }
+      });
+      return;
+    }
+
+    const tl = gsap.timeline();
+    connectors.forEach(({ maskPath, dot, textEl }, index) => {
+      const start = index * 0.15;
+      tl.to(
+        maskPath,
+        { attr: { "stroke-dashoffset": 0 }, duration: 0.7, ease: "power2.out" },
+        start
+      );
+      if (dot) {
+        tl.to(dot, { scale: 1, opacity: 1, duration: 0.35, ease: "power2.out" }, start + 0.7);
+      }
+      if (textEl) {
+        tl.to(textEl, { opacity: 1, y: 0, duration: 0.5, ease: "power2.out" }, start + 0.8);
+      }
+    });
+  };
+
+  let connectors = drawLines();
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        hasRevealed = true;
+        playReveal(connectors);
+        observer.unobserve(entry.target);
+      });
+    },
+    { threshold: 0.25 }
+  );
+  observer.observe(section);
+
+  const redraw = () => {
+    connectors = drawLines();
+  };
+
+  window.addEventListener("load", redraw);
+  if (document.fonts && document.fonts.ready) {
+    document.fonts.ready.then(redraw);
+  }
+
+  let resizeTimer;
+  window.addEventListener("resize", () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(redraw, 150);
+  });
+}
+
 setupGrassAnimation();
 setupRevealAnimation();
 setupSmoothNavigation();
@@ -912,6 +1085,7 @@ setupBannerCoverflow();
 setupCompareSliders();
 setupMagneticHover();
 setupScrollThemeProgress();
+setupToolGarden();
 setupCardTilt();
 setupProfileColumnAlign();
 setupProfileMarquee();
